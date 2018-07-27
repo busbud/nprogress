@@ -112,6 +112,17 @@
         assert.isFalse(parent.hasClass('nprogress-custom-parent'));
         assert.equal(parent.find('#nprogress').length, 0);
       });
+
+      it('should disable next async render', function(done) {
+        NProgress.configure({ speed: 10 });
+        NProgress.set(0);
+        NProgress.remove();
+
+        setTimeout(function() {
+          assert.equal($("#nprogress").length, 0);
+          done();
+        }, 70);
+      });
     });
 
     // ----
