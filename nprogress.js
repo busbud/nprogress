@@ -442,6 +442,8 @@
    */
 
   function removeClass(element, name) {
+    if (!element) return;
+
     var oldList = classList(element),
         newList;
 
